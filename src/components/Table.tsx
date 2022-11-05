@@ -1,25 +1,12 @@
+import useGenerateTable from "../hooks/useGenerateTable";
+
 interface TableProps {
 	emojis: string[];
 }
 
 export default function Table(props: TableProps) {
 
-	function generateTable() {
-		const tdList = props.emojis.map((obj: any, i: number) => {
-			return (
-				<tr key={i} className={`border-b border-black`}>
-					<td>{obj.title}</td>
-					<td className={`
-						text-center text-3xl
-						border-l border-black
-						p-2 
-					`}>{obj.symbol}</td>
-				</tr>
-			)
-		})
-
-		return tdList;
-	}
+	const { generateTable } = useGenerateTable();
 
 	return (
 		<table className="w-2/4 my-10">
@@ -33,7 +20,7 @@ export default function Table(props: TableProps) {
 				</tr>
 			</thead>
 			<tbody>
-				{generateTable()}
+				{generateTable(props.emojis)}
 			</tbody>
 		</table>
 	)
