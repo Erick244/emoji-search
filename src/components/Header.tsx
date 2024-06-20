@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useState } from "react";
 import { searchIcon } from "./Icons";
 
@@ -18,10 +19,10 @@ export default function Header(props: HeaderProps) {
 				font-bold text-3xl
 				text-white
 			`}>
-				<a href="#"
+				<Link href="/"
 				onClick={e => props.onClick("")}>
 					<span className="text-purple-500">EMOJI</span>PEDIA
-				</a>
+				</Link>
 			</div>
 			<div className="flex">
 				<input className={`
